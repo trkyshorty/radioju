@@ -1,0 +1,34 @@
+/*
+  Localizable.strings
+  Radio
+
+  Created by Türkay TANRIKULU on 25.03.2022.
+  
+*/
+"Stations" = "İstasyonlar";
+"Discover" = "Keşfet";
+"Favorites" = "Favorilerim";
+"Settings" = "Ayarlar";
+"Search radio stations" = "Radyo istasyonu ara";
+"Search radio categories" = "Radio türü ara";
+"Radio Stations" = "İstasyonlar";
+"Launch Page" = "Başlama Ekranı";
+"Reset" = "Sıfırla";
+"General" = "Genel";
+"Color" = "Renk";
+"Theme" = "Tema";
+"Dark Mode" = "Koyu Mod";
+"Accent Color" = "Vurgu Rengi";
+"Change app colors" = "Uygulama renklerini değiştirin";
+"Customize the theme according to your preference" = "Temayı tercihinize göre özelleştirin";
+"Change general application settings" = "Genel uygulama ayarlarını değiştirin";
+"Turkey" = "Türkiye";
+"International" = "Uluslararası";
+"Germany" = "Almanya";
+"Azerbaijan" = "Azerbaycan";
+"Pop" = "Pop";
+"Arabesque" = "Arabesk";
+"News" = "Haber";
+"Sport" = "Spor";
+"Dance" = "Dans";
+"Information" = "Bilgilendirme";
