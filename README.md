@@ -10,6 +10,12 @@
 
 - [Radioju API](https://github.com/trkyshorty/radioju-api)
 
+## Features
+
+- Now Playing
+- Localization
+- Color customization
+
 ## Screenshots
 
 <img src="https://www.imagevisit.com/images/2022/08/29/Screenshot-2022-08-29-at-06.59.20.png" width="300">
