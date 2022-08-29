@@ -15,6 +15,7 @@
 - Now Playing
 - Localization
 - Color customization
+- Favorites
 
 ## Screenshots
 
