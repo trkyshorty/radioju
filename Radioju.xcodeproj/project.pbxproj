@@ -29,6 +29,8 @@
 		43509E3F27EBC478009FD720 /* DiscoverListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43509E3E27EBC478009FD720 /* DiscoverListComponent.swift */; };
 		4352995627EAAF180005F11E /* StationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4352995527EAAF180005F11E /* StationService.swift */; };
 		435CEAF127EB055F006E3F3F /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435CEAF027EB055F006E3F3F /* URL.swift */; };
+		43606459295C6AC30009E6CF /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 43606458295C6AC30009E6CF /* GoogleMobileAds */; };
+		4360645F295C85BE0009E6CF /* AdsBannerComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360645E295C85BE0009E6CF /* AdsBannerComponent.swift */; };
 		4380038527EAC8140012A820 /* GenreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4380038427EAC8140012A820 /* GenreService.swift */; };
 		4387A8B127ED92FB00DAE868 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4387A8B327ED92FB00DAE868 /* Localizable.strings */; };
 		4387A8B427ED92FF00DAE868 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 4387A8B627ED92FF00DAE868 /* Localizable.stringsdict */; };
@@ -37,8 +39,8 @@
 		43B0BC3B27EE790C00B7990F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B0BC3A27EE790C00B7990F /* Color.swift */; };
 		43E3C1D827E8C11C0042BDB5 /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3C1D727E8C11C0042BDB5 /* StationModel.swift */; };
 		43E3C1DA27E8C1A70042BDB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3C1D927E8C1A70042BDB5 /* AppDelegate.swift */; };
-		43F3135A27F0092A002E76EE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 43F3135927F0092A002E76EE /* Kingfisher */; };
 		43F3135F27F01EB5002E76EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F3135E27F01EB5002E76EE /* Configuration.swift */; };
+		43F9233628AE645A001497B5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 43F9233528AE645A001497B5 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,7 @@
 		43509E3E27EBC478009FD720 /* DiscoverListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverListComponent.swift; sourceTree = "<group>"; };
 		4352995527EAAF180005F11E /* StationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationService.swift; sourceTree = "<group>"; };
 		435CEAF027EB055F006E3F3F /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		4360645E295C85BE0009E6CF /* AdsBannerComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsBannerComponent.swift; sourceTree = "<group>"; };
 		4380038427EAC8140012A820 /* GenreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreService.swift; sourceTree = "<group>"; };
 		4387A8B227ED92FB00DAE868 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4387A8B527ED92FF00DAE868 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -101,7 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43F3135A27F0092A002E76EE /* Kingfisher in Frameworks */,
+				43606459295C6AC30009E6CF /* GoogleMobileAds in Frameworks */,
+				43F9233628AE645A001497B5 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +236,7 @@
 				43892C8127EAFBBB00931371 /* NowPlayingComponent.swift */,
 				43892C8327EAFC1600931371 /* StationListComponent.swift */,
 				43509E3E27EBC478009FD720 /* DiscoverListComponent.swift */,
+				4360645E295C85BE0009E6CF /* AdsBannerComponent.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -290,7 +295,8 @@
 			);
 			name = "Radioju (iOS)";
 			packageProductDependencies = (
-				43F3135927F0092A002E76EE /* Kingfisher */,
+				43F9233528AE645A001497B5 /* Kingfisher */,
+				43606458295C6AC30009E6CF /* GoogleMobileAds */,
 			);
 			productName = "Radio (iOS)";
 			productReference = 434C381327DF7D6C00F17737 /* Radioju.app */;
@@ -344,7 +350,8 @@
 			);
 			mainGroup = 434C380327DF7D6B00F17737;
 			packageReferences = (
-				43B0BC3327EE5FF500B7990F /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				43F9233428AE645A001497B5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				43606457295C6AC30009E6CF /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 434C381427DF7D6C00F17737 /* Products */;
 			projectDirPath = "";
@@ -402,6 +409,7 @@
 				43E3C1DA27E8C1A70042BDB5 /* AppDelegate.swift in Sources */,
 				4317F0CF27EFB61E00D1D101 /* LocationModel.swift in Sources */,
 				4306E88927EB8A600083DCF4 /* Data.xcdatamodeld in Sources */,
+				4360645F295C85BE0009E6CF /* AdsBannerComponent.swift in Sources */,
 				434C384D27DF802900F17737 /* RadioPlayer.swift in Sources */,
 				434C386627DFA5BF00F17737 /* SettingsView.swift in Sources */,
 				43E3C1D827E8C11C0042BDB5 /* StationModel.swift in Sources */,
@@ -579,8 +587,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8KXB827C2K;
 				ENABLE_PREVIEWS = YES;
@@ -601,7 +609,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = turkay.tanrikulu.radioju;
 				PRODUCT_NAME = Radioju;
-				PROVISIONING_PROFILE_SPECIFIER = "Radio Development";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -721,7 +729,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		43B0BC3327EE5FF500B7990F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		43606457295C6AC30009E6CF /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		43F9233428AE645A001497B5 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
@@ -732,9 +748,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		43F3135927F0092A002E76EE /* Kingfisher */ = {
+		43606458295C6AC30009E6CF /* GoogleMobileAds */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 43B0BC3327EE5FF500B7990F /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 43606457295C6AC30009E6CF /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+		43F9233528AE645A001497B5 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 43F9233428AE645A001497B5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */

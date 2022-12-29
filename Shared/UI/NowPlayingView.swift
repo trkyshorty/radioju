@@ -58,6 +58,8 @@ struct NowPlayingView: View {
                         KFImage(URL(string: "image/station/" + radioPlayer.currentStation!.id + ".png", relativeTo: Configuration.cdnUrl))
                             .resizable()
                             .frame(width: UIScreen.main.bounds.size.width - 75, height: 200)
+                            .clipped()
+                            .cornerRadius(10)
                             .padding(.bottom)
                         Divider()
                             .padding(.horizontal)
@@ -90,7 +92,7 @@ struct NowPlayingView: View {
                                 }
                             }
                         }
-                        .padding()
+                        .padding(.horizontal, 26)
                     }
                     .padding(.vertical, 32)
                 }
@@ -98,8 +100,21 @@ struct NowPlayingView: View {
                 .onTapGesture {
                     presentationMode.wrappedValue.dismiss()
                 }
+               
                 Divider()
                     .padding(.horizontal)
+                
+                if(Configuration.adsEnable) {
+                    HStack{
+                        Spacer()
+                        AdsBannerComponent(size: CGSize(width: 320, height: 50))
+                            .frame(width: 320, height: 50, alignment: .center)
+                        Spacer()
+                    }
+                    Divider()
+                        .padding(.horizontal)
+                }
+                
                 VStack(alignment: .center) {
                     HStack() {
                         Button(action: {
@@ -165,9 +180,23 @@ struct NowPlayingView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     HStack {
+                        Button(action: {
+                            presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Image(systemName: "chevron.down")
+                                .foregroundColor(.accentColor)
+                        }
+                        Spacer()
                         Text(radioPlayer.currentStation?.title ?? "")
                             .dynamicTypeSize(.medium)
                             .foregroundColor(accentColor)
+                        Spacer()
+                        Button(action: {
+                            radioPlayer.stop()
+                        }) {
+                            Image(systemName: "power")
+                                .foregroundColor(Color.red)
+                        }
                     }
                     .contentShape(Rectangle())
                     .onTapGesture {

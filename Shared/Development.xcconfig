@@ -8,5 +8,6 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-apiUrl = 127.0.0.1:3000
-cdnUrl = 127.0.0.1:3000
+apiUrl = 127.0.0.1:4080
+cdnUrl = 127.0.0.1:4080
+adsEnable = NO

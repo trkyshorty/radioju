@@ -27,6 +27,11 @@ enum Configuration {
     
     static var accentColor: Color = Color(rawValue: 0xFF2D55)!
     
+    static var adsEnable: Bool {
+        return try! Configuration.value(for: "adsEnable") == "YES" ? true : false
+    }
+    
+    
     enum Error: Swift.Error {
         case missingKey, invalidValue
     }

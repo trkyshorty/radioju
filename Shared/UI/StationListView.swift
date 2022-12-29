@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct StationListView: View {
     @AppStorage("country") var countrySelection: String = ""
+    @AppStorage("stationSort") var stationSortSelection: String = ""
     
     @StateObject private var radioPlayer = RadioPlayer.instance
     @StateObject private var stationService = RadioPlayer.instance.stationService
@@ -21,6 +23,16 @@ struct StationListView: View {
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         HStack {
+                            Menu(content: {
+                                Picker("Sort", selection: $stationSortSelection.onChange(sortChanged)) {
+                                    Text(String(NSLocalizedString("Default", comment: "Default"))).tag("default")
+                                    Text(String(NSLocalizedString("A-Z", comment: "A-Z"))).tag("asc")
+                                    Text(String(NSLocalizedString("Z-A", comment: "Z-A"))).tag("desc")
+                                }
+                            },
+                            label: {
+                                Label("Sort", systemImage: "arrow.up.and.down.text.horizontal")
+                            })
                             Spacer()
                             Image(systemName: "dot.radiowaves.left.and.right")
                                 .foregroundColor(.accentColor)
@@ -38,7 +50,6 @@ struct StationListView: View {
                             label: {
                                 Label("Country", systemImage: "globe.badge.chevron.backward")
                             })
-                            .offset(x: 15)
                         }
                         .ignoresSafeArea()
                     }
@@ -48,7 +59,11 @@ struct StationListView: View {
     }
     
     func countryChanged(to value: String) {
-        stationService.load(country: countrySelection)
+        stationService.load(country: countrySelection, sort: stationSortSelection)
+    }
+    
+    func sortChanged(to value: String) {
+        stationService.load(country: countrySelection, sort: stationSortSelection)
     }
 }
 
@@ -57,4 +72,5 @@ struct StationListView_Previews: PreviewProvider {
         StationListView()
     }
 }
+
 

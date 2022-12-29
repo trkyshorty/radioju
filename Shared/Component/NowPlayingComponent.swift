@@ -36,15 +36,15 @@ struct NowPlayingComponent<Content: View>: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             self.content
-            if radioPlayer.currentStation != nil {
+            if radioPlayer.isStopped == false {
                 ZStack {
                     HStack {
                         HStack(){
                             KFImage(URL(string: "image/station/" + radioPlayer.currentStation!.id + ".png", relativeTo: Configuration.cdnUrl))
                                 .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .scaledToFit()
-                                .frame(width: 56, height: 56)
+                                .clipped()
+                                .cornerRadius(50)
+                                .frame(width: 48, height: 48)
                                 .padding(.horizontal)
                             
                             if nowPlayingInfoCenter.nowPlayingInfo?[MPMediaItemPropertyArtist] != nil {

@@ -8,6 +8,7 @@
 import SwiftUI
 import Kingfisher
 import CoreData
+import GoogleMobileAds
 
 struct StationListComponent: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -27,7 +28,7 @@ struct StationListComponent: View {
     private var genreId : String
     private var favoritesOnly : Bool
     
-    private var genreOverlayLimit: Int = 6
+    private var genreOverlayLimit: Int = 4
     
     init(genreId: String = "", favoritesOnly : Bool = false) {
         self.genreId = genreId
@@ -42,19 +43,32 @@ struct StationListComponent: View {
     
     var body: some View {
         ZStack {
+            
             if searchResults.count == 0 {
                 VStack {
                     ProgressView()
                 }
             } else {
+               
                 List {
-                    ForEach(searchResults) { station in
-                        HStack(spacing: 8) {
+                    ForEach(Array(searchResults.enumerated()), id: \.offset) { index, station in
+                        if(Configuration.adsEnable) {
+                            if((index == 0 && searchResults.count < 10) || (index > 0 && index.isMultiple(of: 10))) {
+                                HStack{
+                                    Spacer()
+                                    AdsBannerComponent(size: CGSize(width: 320, height: 50))
+                                    .frame(width: 320, height: 50, alignment: .center)
+                                    Spacer()
+                                }
+                            }
+                        }
+                        
+                        HStack() {
                             KFImage(URL(string: "image/station/" + station.id + ".png", relativeTo: Configuration.cdnUrl))
                                 .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .scaledToFit()
-                                .frame(width: 56, height: 56)
+                                .clipped()
+                                .cornerRadius(50)
+                                .frame(width: 48, height: 48)
                             VStack(alignment: .leading) {
                                 Text(station.title)
                                     .font(.subheadline)
@@ -100,7 +114,9 @@ struct StationListComponent: View {
                         }
                     }
                 }
-                .listStyle(GroupedListStyle())
+                .padding(.bottom, radioPlayer.isStopped == false ? 50 : 0)
+                .listStyle(InsetGroupedListStyle())
+                .environment(\.horizontalSizeClass, .regular)
             }
         }
         .searchable(text: $searchText, prompt: String(localized: "Search radio stations"))

@@ -48,6 +48,14 @@ struct SettingsView: View {
                         }
                     }
                 }
+                if(Configuration.adsEnable) {
+                    HStack{
+                        Spacer()
+                        AdsBannerComponent(size: CGSize(width: 320, height: 250))
+                            .frame(width: 320, height: 250, alignment: .center)
+                        Spacer()
+                    }
+                }
             }
             .listStyle(GroupedListStyle())
             .navigationBarTitleDisplayMode(.inline)

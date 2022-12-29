@@ -11,7 +11,9 @@ struct DiscoverListComponent: View {
     @State private var searchText = ""
     
     @AppStorage("country") var countryCode: String = ""
+    @AppStorage("genreSort") var genreSortSelection: String = ""
     
+    @StateObject private var radioPlayer = RadioPlayer.instance
     @StateObject private var genreService = RadioPlayer.instance.genreService
     @StateObject private var stationService = RadioPlayer.instance.stationService
     
@@ -23,6 +25,14 @@ struct DiscoverListComponent: View {
                 }
             } else {
                 List {
+                    if(Configuration.adsEnable) {
+                        HStack{
+                            Spacer()
+                            AdsBannerComponent(size: CGSize(width: 320, height: 50))
+                                .frame(width: 320, height: 50, alignment: .center)
+                            Spacer()
+                        }
+                    }
                     ForEach(searchResults) { genre in
                         NavigationLink(
                             destination:
@@ -65,8 +75,20 @@ struct DiscoverListComponent: View {
                             }
                         }
                     }
+                    if(Configuration.adsEnable) {
+                        if(searchText.isEmpty) {
+                            HStack{
+                                Spacer()
+                                AdsBannerComponent(size: CGSize(width: 320, height: 50))
+                                    .frame(width: 320, height: 50, alignment: .center)
+                                Spacer()
+                            }
+                        }
+                    }
                 }
-                .listStyle(GroupedListStyle())
+                .padding(.bottom, radioPlayer.isStopped == false ? 50 : 0)
+                .listStyle(InsetGroupedListStyle())
+                .environment(\.horizontalSizeClass, .regular)
             }
         }
         .searchable(text: $searchText, prompt: String(localized: "Search radio categories"))
@@ -96,7 +118,16 @@ struct DiscoverListComponent: View {
             })
         }
         
-       //genreList = genreList.sorted {$0.title < $1.title }
+        switch(genreSortSelection) {
+            case "asc":
+                genreList = genreList.sorted {$0.title < $1.title }
+            break
+            case "desc":
+                genreList = genreList.sorted {$0.title > $1.title }
+            break
+        default:
+            break
+        }
         
         if searchText.isEmpty {
             return genreList
