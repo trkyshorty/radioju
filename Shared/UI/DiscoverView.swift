@@ -38,7 +38,6 @@ struct DiscoverView: View {
                             label: {
                                 Label("Country", systemImage: "globe.badge.chevron.backward")
                             })
-                            .offset(x: 15)
                         }
                         .ignoresSafeArea()
                     }

@@ -100,6 +100,14 @@ struct NowPlayingView: View {
                 }
                 Divider()
                     .padding(.horizontal)
+                HStack{
+                    Spacer()
+                    AdsBannerComponent(size: CGSize(width: 320, height: 50))
+                    .frame(width: 320, height: 50, alignment: .center)
+                    Spacer()
+                }
+                Divider()
+                    .padding(.horizontal)
                 VStack(alignment: .center) {
                     HStack() {
                         Button(action: {

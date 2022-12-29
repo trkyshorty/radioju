@@ -23,6 +23,12 @@ struct DiscoverListComponent: View {
                 }
             } else {
                 List {
+                    HStack{
+                        Spacer()
+                        AdsBannerComponent(size: CGSize(width: 320, height: 50))
+                        .frame(width: 320, height: 50, alignment: .center)
+                        Spacer()
+                    }
                     ForEach(searchResults) { genre in
                         NavigationLink(
                             destination:
@@ -65,8 +71,17 @@ struct DiscoverListComponent: View {
                             }
                         }
                     }
+                    if(searchText.isEmpty) {
+                        HStack{
+                            Spacer()
+                            AdsBannerComponent(size: CGSize(width: 320, height: 50))
+                            .frame(width: 320, height: 50, alignment: .center)
+                            Spacer()
+                        }
+                    }
                 }
-                .listStyle(GroupedListStyle())
+                .listStyle(InsetGroupedListStyle())
+                .environment(\.horizontalSizeClass, .regular)
             }
         }
         .searchable(text: $searchText, prompt: String(localized: "Search radio categories"))
