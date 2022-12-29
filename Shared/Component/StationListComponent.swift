@@ -52,19 +52,22 @@ struct StationListComponent: View {
                
                 List {
                     ForEach(Array(searchResults.enumerated()), id: \.offset) { index, station in
-                        if((index == 0 && searchResults.count < 10) || (index > 0 && index.isMultiple(of: 10))) {
-                            HStack{
-                                Spacer()
-                                AdsBannerComponent(size: CGSize(width: 320, height: 50))
-                                .frame(width: 320, height: 50, alignment: .center)
-                                Spacer()
+                        if(Configuration.adsEnable) {
+                            if((index == 0 && searchResults.count < 10) || (index > 0 && index.isMultiple(of: 10))) {
+                                HStack{
+                                    Spacer()
+                                    AdsBannerComponent(size: CGSize(width: 320, height: 50))
+                                    .frame(width: 320, height: 50, alignment: .center)
+                                    Spacer()
+                                }
                             }
                         }
-                        HStack(spacing: 8) {
+                        
+                        HStack() {
                             KFImage(URL(string: "image/station/" + station.id + ".png", relativeTo: Configuration.cdnUrl))
                                 .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .scaledToFit()
+                                .clipped()
+                                .cornerRadius(50)
                                 .frame(width: 48, height: 48)
                             VStack(alignment: .leading) {
                                 Text(station.title)
@@ -111,6 +114,7 @@ struct StationListComponent: View {
                         }
                     }
                 }
+                .padding(.bottom, radioPlayer.isStopped == false ? 50 : 0)
                 .listStyle(InsetGroupedListStyle())
                 .environment(\.horizontalSizeClass, .regular)
             }

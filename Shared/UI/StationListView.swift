@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import GoogleMobileAds
 import UIKit
 
 struct StationListView: View {

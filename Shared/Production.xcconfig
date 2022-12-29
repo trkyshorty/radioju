@@ -10,3 +10,4 @@
 
 apiUrl = api.radioju.app
 cdnUrl = cdn.radioju.app
+adsEnable = NO

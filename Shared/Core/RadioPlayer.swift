@@ -15,6 +15,7 @@ class RadioPlayer: NSObject, ObservableObject {
     static let instance = RadioPlayer()
     
     @Published var isMuted: Bool = false
+    @Published var isStopped: Bool = true
     
     @Published var previousStation: StationModel?
     @Published var currentStation: StationModel?
@@ -213,7 +214,7 @@ class RadioPlayer: NSObject, ObservableObject {
            MPNowPlayingInfoCenter.default().playbackState == .paused ) {
             changePlaybackState(.playing)
         }
-        
+        isStopped = false
         player?.play()
     }
     
@@ -224,6 +225,7 @@ class RadioPlayer: NSObject, ObservableObject {
     
     func stop() {
         player?.pause() //how to destroy??
+        isStopped = true
         changePlaybackState(.stopped)
     }
     
